@@ -52,7 +52,7 @@ def get_gan_images(dataset):
 
 class CarDataset(Dataset):
     def __init__(self, imgs_dir, seed=42, num_opel=-1, num_door=-1,
-                 num_deloitte_aug=-1, num_gan=-1, num_primary=1, augmentation=None, 
+                 num_deloitte_aug=-1, num_gan=-1, num_primary_multiple=1, augmentation=None, 
                  test=False, predictor=None, bg_manager=None, grayscale=False):
         self.imgs_dir = imgs_dir
         self.augmentation = augmentation
@@ -108,7 +108,7 @@ class CarDataset(Dataset):
             for f in raw_ids:
                 if ((f not in aug) and (f not in gan) and (f not in door) and (f not in opel)):
                     primary_images.append(f)
-            for i in range(num_primary):
+            for i in range(num_primary_multiple):
                 self.ids = self.ids + primary_images
         else:
             self.ids = raw_ids
