@@ -1,4 +1,4 @@
-from car_dataset import CarDataset
+from utils.dataloader.car_dataset import *
 import matplotlib.pyplot as plt
 from torchvision.transforms import *
 import segmentation_models_pytorch as smp
