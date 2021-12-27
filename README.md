@@ -1,5 +1,7 @@
 # 02456-deep-learning
+This is the project in the course: 02456 Deep Learning at DTU compute. The project case is given by Deloitte and is within segmentation of car parts on images of cars. The notebook showing all the results (recreating_results_notebook.ipynb) is found in the root of the repository. 
 
+An overview of the structure of the project can be seen below:
 - ./smp
   - train.py   
 - ./unet
