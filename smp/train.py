@@ -3,7 +3,6 @@ os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 import numpy as np
 import cv2
 from torch.utils.data import DataLoader
-from torch.utils.data import Dataset as BaseDataset
 import albumentations as albu
 import torch
 import numpy as np
@@ -64,16 +63,16 @@ if __name__ == '__main__':
     ENCODER_WEIGHTS = 'imagenet'
     ACTIVATION = 'softmax2d' 
     DEVICE = 'cuda'
-    channels_nr = 3
+    channels_nr = 3 # 1 if grayscale
 
     model = smp.UnetPlusPlus(
         encoder_name=ENCODER, 
         encoder_weights=ENCODER_WEIGHTS, 
         classes=8+1, 
         activation=ACTIVATION,
-        # decoder_use_batchnorm=True,
         in_channels=channels_nr,
     )
+    
     model.to(DEVICE)
     
     def freeze_encoder(model):
@@ -107,13 +106,14 @@ if __name__ == '__main__':
             image = image.to(DEVICE)
             mask = mask.to(DEVICE)
             
+            optimizer.zero_grad()
+
             pred = model(image)
 
             loss = criterion(pred, mask)
             loss.backward()
             
             optimizer.step()
-            optimizer.zero_grad()
 
             train_log.append(loss.item())
 
