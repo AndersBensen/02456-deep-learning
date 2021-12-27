@@ -1,10 +1,22 @@
 # 02456-deep-learning
 
-- ./models
 - ./smp
+  - train.py   
 - ./unet
+  - train.py
+  - unet.py
 - ./utils
   - ./background_rem
+    - ./bg_manager.py
+    - ./bg_remover.py  
   - ./dataloader
+    - ./car_dataset.py   
   - ./data_prep
+    - ./cycle_gan_files.txt
+    - ./test_data.txt
+    - ./data_filter.py
+    - ./train_test_val.py   
   - ./visualization  
+    - ./performance_graph.py
+    - ./random_img_viz.py
+    - ./test_viz.py   
