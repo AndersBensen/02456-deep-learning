@@ -62,7 +62,7 @@ class CarDataset(Dataset):
 
         raw_ids = os.listdir(imgs_dir)
 
-        #random.seed(seed)
+        random.seed(seed)
         random.shuffle(raw_ids)
 
         self.ids = []
@@ -73,7 +73,7 @@ class CarDataset(Dataset):
                 self.ids = self.ids + opel
             else:
                 assert(len(opel) >= num_opel)
-                #random.seed(seed)
+                random.seed(seed)
                 sample_opel = random.sample(opel, num_opel)
                 self.ids = self.ids + sample_opel
 
@@ -82,7 +82,7 @@ class CarDataset(Dataset):
                 self.ids = self.ids + door
             else:
                 assert(len(door) >= num_door)
-                #random.seed(seed)
+                random.seed(seed)
                 sample_door = random.sample(door, num_door)
                 self.ids = self.ids + sample_door
 
@@ -91,7 +91,7 @@ class CarDataset(Dataset):
                 self.ids = self.ids + aug
             else:
                 assert(len(aug) >= num_deloitte_aug)
-                #random.seed(seed)
+                random.seed(seed)
                 sample_aug = random.sample(aug, num_deloitte_aug)
                 self.ids = self.ids + sample_aug
 
@@ -100,7 +100,7 @@ class CarDataset(Dataset):
                 self.ids = self.ids + gan
             else:
                 assert(len(gan) >= num_gan)
-                #random.seed(seed)
+                random.seed(seed)
                 sample_gan = random.sample(gan, num_gan)
                 self.ids = self.ids + sample_gan
 

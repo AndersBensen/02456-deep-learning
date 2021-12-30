@@ -61,8 +61,6 @@ for i in range(0, EPOCHS):
         
         optimizer.step()
 
-        print("Training loss:", loss.item())
-
         train_log.append(loss.item())
 
     train_mean = np.mean(train_log)
@@ -78,8 +76,6 @@ for i in range(0, EPOCHS):
         pred = model(image)
 
         loss = criterion(pred,mask)
-        
-        print("Validation loss:", loss.item())
 
         valid_log.append(loss.item())
 
